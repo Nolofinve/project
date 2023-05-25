@@ -52,5 +52,3 @@ if (personalMovieDB.count < 10) {
 }
 
 console.log(personalMovieDB);
-
-// (personalMovieDB >= 10 && personalMovieDB < 30)
