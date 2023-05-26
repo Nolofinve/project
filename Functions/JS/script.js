@@ -43,15 +43,15 @@ const calc = (a, b) => {
 
 // Arguments
 
-const usdCurr = 28;
-const eurCurr = 32;
+// const usdCurr = 28;
+// const eurCurr = 32;
 
-function convert(amount, curr) {
-    console.log(curr * amount);
-}
+// function convert(amount, curr) {
+//     console.log(curr * amount);
+// }
 
-convert(500, usdCurr);
-convert(500, eurCurr);
+// convert(500, usdCurr);
+// convert(500, eurCurr);
 
 // About "return"
 
@@ -123,3 +123,30 @@ function getMathResult(num, times) {
 }
 
 getMathResult(10, 5);
+
+// Callback
+
+function first() {
+    //  Do something
+    setTimeout(function () {
+        console.log(1);
+    }, 500);
+}
+
+function second() {
+    console.log(2);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+    console.log(`I learn: ${lang}`);
+    callback();
+}
+
+function done() {
+    console.log('I passed this lesson!');
+}
+
+learnJS('JavaScript', done);

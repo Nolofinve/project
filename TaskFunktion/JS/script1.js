@@ -25,7 +25,33 @@
 
 // getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 
-function getTimeFromMinutes()
+function getTimeFromMinutes(minutesTotal) {
+    if (typeof (minutesTotal) != 'number' || minutesTotal < 0 || !Number.isInteger(minutesTotal)) {
+        return 'Error, check the data';
+    }
+
+    const hours = Math.floor(minutesTotal / 60);
+    const minutes = minutesTotal % 60;
+
+    let hoursStr = '';
+
+    switch (hours) {
+        case 0:
+            hoursStr = 'hours';
+            break;
+        case 1:
+            hoursStr = 'hour';
+            break;
+        case 2:
+        case 3:
+        case 4:
+            hoursStr = 'hours';
+    }
+    return `These are ${hours} ${hoursStr} and ${minutes} minutes`;
+}
+
+getTimeFromMinutes();
+console.log(getTimeFromMinutes(0));
 
 // 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них.Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
 
@@ -37,4 +63,18 @@ function getTimeFromMinutes()
 
 // У этой задачи есть очень много вариантов решения, в том числе и встроенное в JS.Подходит любое:)
 
-function findMaxNumber
+function findMaxNumber(a, b, c, d) {
+    if (typeof (a) != 'number' ||
+        typeof (b) != 'number' ||
+        typeof (c) != 'number' ||
+        typeof (d) != 'number') {
+        return 0;
+    } else {
+        return Math.max(a, b, c, d);
+    }
+}
+
+findMaxNumber(1, 5, 6.6, 11);
+findMaxNumber(1, 5, '6', '10');
+
+console.log(findMaxNumber(1, 5, '6', '10'));
